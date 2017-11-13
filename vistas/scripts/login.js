@@ -1,4 +1,4 @@
-$("#frmAcceso").on('submit', function(e){
+$("#loginform").on('submit', function(e){
     e.preventDefault();
     logina=$("#logina").val();
     clavea=$("#clavea").val();
