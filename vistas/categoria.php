@@ -72,6 +72,12 @@ if($_SESSION['almacen']==1){
                           </div>
                         </form>
                     </div>
+                                <div class="button-box">
+                                <button class="tst1 btn btn-info">Info Message</button>
+                                <button class="tst2 btn btn-warning">Warning Message</button>
+                                <button class="tst3 btn btn-success">Success Message</button>
+                                <button class="tst4 btn btn-danger">Danger Message</button>
+                            </div>
                     <!--Fin centro -->
                                 
                                 
@@ -93,6 +99,9 @@ if($_SESSION['almacen']==1){
 
 require 'footer.php';
 ?>
+               
+    
+  
 <script type="text/javascript" src="scripts/categoria.js"></script>
 
 <?php

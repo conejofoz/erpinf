@@ -1,32 +1,35 @@
 <footer class="footer text-center"> 2017 &copy; Infinity Group S.A. by Silvio Coelho </footer>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page Content -->
-        <!-- ============================================================== -->
-        </div>
-        <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../ampleadmin-minimal/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Menu Plugin JavaScript -->
-        <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-        <!--slimscroll JavaScript -->
-        <script src="../ampleadmin-minimal/js/jquery.slimscroll.js"></script>
-        <!--Wave Effects -->
-        <script src="../ampleadmin-minimal/js/waves.js"></script>
-        <!-- Custom Theme JavaScript -->
-        <script src="../ampleadmin-minimal/js/custom.min.js"></script>
-        <!--Style Switcher -->
-        <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-        
-        
-        
-        
-        
-        
-        <!-- antigo -->
-        <!-- jQuery -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page Content -->
+<!-- ============================================================== -->
+</div>
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../ampleadmin-minimal/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<!--slimscroll JavaScript -->
+<script src="../ampleadmin-minimal/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="../ampleadmin-minimal/js/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../ampleadmin-minimal/js/custom.min.js"></script>
+<!--Style Switcher -->
+<script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<!-- Sweet-Alert  -->
+<script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+<script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+<script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+
+
+
+
+
+<!-- antigo -->
+<!-- jQuery -->
 <!--<script src="../public/js/jquery-3.1.1.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <!--<script src="../public/js/bootstrap.min.js"></script>
@@ -44,7 +47,7 @@
 
 <script src="../public/js/bootbox.min.js"></script> 
 <script src="../public/js/bootstrap-select.min.js"></script>  
-        <!-- antigo -->
-    </body>
+<!-- antigo -->
+</body>
 
 </html>

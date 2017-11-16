@@ -20,6 +20,10 @@ if (strlen(session_id()) < 1) {
         <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
         <!-- animation CSS -->
         <link href="../ampleadmin-minimal/css/animate.css" rel="stylesheet">
+        <!--alerts CSS -->
+        <link href="../plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+        <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="../ampleadmin-minimal/css/style.css" rel="stylesheet">
         <!-- color CSS -->

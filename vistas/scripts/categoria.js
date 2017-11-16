@@ -82,7 +82,6 @@ function guardaryeditar(e) {
         data: formData,
         contentType: false,
         processData: false,
-
         success: function (datos) {
             bootbox.alert(datos);
             mostrarform(false);
@@ -94,39 +93,163 @@ function guardaryeditar(e) {
 
 
 
-function mostrar(idcategoria){
-    $.post("../ajax/categoria.php?op=mostrar",{idcategoria:idcategoria},function(data, status){
-       data = JSON.parse(data);
-       mostrarform(true);
-       
-       $("#nombre").val(data.nombre);
-       $("#descripcion").val(data.descripcion);
-       $("#idcategoria").val(data.idcategoria);
+function mostrar(idcategoria) {
+    $.post("../ajax/categoria.php?op=mostrar", {idcategoria: idcategoria}, function (data, status) {
+        data = JSON.parse(data);
+        mostrarform(true);
+
+        $("#nombre").val(data.nombre);
+        $("#descripcion").val(data.descripcion);
+        $("#idcategoria").val(data.idcategoria);
     })
 }
 
 
 
-function desactivar(idcategoria){
-    bootbox.confirm("Deseja desactivar la Categoria?", function(result){
-        if(result){
-           $.post("../ajax/categoria.php?op=desactivar",{idcategoria:idcategoria},function(e){
-              bootbox.alert(e);
-              tabla.ajax.reload();
-           });
+/*function desactivar(idcategoria){
+ bootbox.confirm("Deseja desactivar la Categoria?", function(result){
+ if(result){
+ $.post("../ajax/categoria.php?op=desactivar",{idcategoria:idcategoria},function(e){
+ bootbox.alert(e);
+ tabla.ajax.reload();
+ });
+ }
+ })
+ }*/
+
+
+
+function desactivar(idcategoria) {
+    swal({
+        title: "Tem certeza que quer desativar a categoria?",
+        text: "Essa operação não poderá ser revertida!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Sim",
+        cancelButtonColor: "#3cb371",
+        cancelButtonText: "Não",
+        //closeOnConfirm: false,   
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function (isConfirm) {
+        if (isConfirm) {
+            $.post("../ajax/categoria.php?op=desactivar", {idcategoria: idcategoria}, function (e) {
+                if (e == 'Categoria Desactivada') {
+                    //swal("Here's a message!");
+                    swal({title: "Desativado!",text: "Registro desativado",closeOnConfirm: false});
+                    tabla.ajax.reload();
+                } else {
+                    swal("Erro", "Houve um erro :)", "error");
+                }
+            });
+        } else {
+            swal("Operação cancelada", "A operação foi cancelada :)", "error");
+        }
+    });
+}
+
+
+
+function activar(idcategoria) {
+    swal({
+        title: "Tem certeza que quer ativar a categoria?",
+        text: "Essa operação não poderá ser revertida!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Sim",
+        cancelButtonColor: "#3cb371",
+        cancelButtonText: "Não",
+        //closeOnConfirm: false,   
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function (isConfirm) {
+        if (isConfirm) {
+            $.post("../ajax/categoria.php?op=activar", {idcategoria: idcategoria}, function (e) {
+                if (e == 'Categoria Activada') {
+                    //swal("Here's a message!");
+                    swal({title: "Ativado!",text: "Registro ativado",closeOnConfirm: false});
+                    tabla.ajax.reload();
+                } else {
+                    swal("Erro", "Houve um erro :)", "error");
+                }
+            });
+        } else {
+            swal("Operação cancelada", "A operação foi cancelada :)", "error");
+        }
+    });
+}
+
+
+
+
+
+
+
+/*function activar(idcategoria) {
+    bootbox.confirm("Deseja activar la Categoria?", function (result) {
+        if (result) {
+            $.post("../ajax/categoria.php?op=activar", {idcategoria: idcategoria}, function (e) {
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            });
         }
     })
-}
-function activar(idcategoria){
-    bootbox.confirm("Deseja activar la Categoria?", function(result){
-        if(result){
-           $.post("../ajax/categoria.php?op=activar",{idcategoria:idcategoria},function(e){
-              bootbox.alert(e);
-              tabla.ajax.reload();
-           });
-        }
-    })
-}
+}*/
+
+
+
+$(".tst1").on("click", function () {
+        $.toast({
+            heading: 'Welcome to my Elite admin',
+            text: 'Use the predefined ones, or specify a custom position object.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 3000,
+            stack: 6
+        });
+
+    });
+    
+    $(".tst2").on("click", function () {
+        $.toast({
+            heading: 'Welcome to my Elite admin',
+            text: 'Use the predefined ones, or specify a custom position object.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'warning',
+            hideAfter: 3500,
+            stack: 6
+        });
+
+    });
+    $(".tst3").on("click", function () {
+        $.toast({
+            heading: 'Welcome to my Elite admin',
+            text: 'Use the predefined ones, or specify a custom position object.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+
+    });
+
+    $(".tst4").on("click", function () {
+        $.toast({
+            heading: 'Welcome to my Elite admin',
+            text: 'Use the predefined ones, or specify a custom position object.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'error',
+            hideAfter: 3500
+
+        });
+
+    });
 
 
 

@@ -40,20 +40,21 @@
     //Parameter
     $('#sa-params').click(function(){
         swal({   
-            title: "Are you sure?",   
-            text: "You will not be able to recover this imaginary file!",   
+            title: "Tem certeza que quer apagar?",   
+            text: "Essa operação não poderá ser revertida!",   
             type: "warning",   
             showCancelButton: true,   
             confirmButtonColor: "#DD6B55",   
-            confirmButtonText: "Yes, delete it!",   
-            cancelButtonText: "No, cancel plx!",   
-            closeOnConfirm: false,   
+            confirmButtonText: "Sim, apagar!",   
+            cancelButtonText: "Não, cancelar operação!",   
+            //closeOnConfirm: false,   
+            closeOnConfirm: true,
             closeOnCancel: false 
         }, function(isConfirm){   
             if (isConfirm) {     
-                swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                //swal("Deletedo!", "aqui vai o codigo ajax.", "success");   
             } else {     
-                swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                swal("Cancelado", "A operação foi cancelada :)", "error");   
             } 
         });
     });
