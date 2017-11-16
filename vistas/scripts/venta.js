@@ -151,9 +151,14 @@ function guardaryeditar(e)
         processData: false,
         success: function (datos)
         {
-            bootbox.alert(datos);
-            mostrarform(false);
-            listar();
+            //bootbox.alert(datos);
+            if(datos == 'Venta registrada'){
+                swal({title: "Venda adicionada!",text: "a venda foi adicionada com sucesso!",closeOnConfirm: false, type:"success"});
+                mostrarform(false);
+                listar();
+            } else {
+            swal("Erro!", "Ocorreu um erro e a venda não foi inserida", "error");
+            }
         }
 
     });

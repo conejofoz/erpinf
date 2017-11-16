@@ -53,20 +53,10 @@ if (!isset($_SESSION["nombre"])) {
        
         
         ?>
-            <!-- ============================================================== -->
-            <!-- Page Content -->
-            <!-- ============================================================== -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row bg-title">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Dashboard</h4> </div>
-                        
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                                        <!-- Main content -->
+        <!--Contenido-->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">        
+            <!-- Main content -->
             <section class="content">
                 <div class="row">
                     <div class="col-md-12">
@@ -80,7 +70,7 @@ if (!isset($_SESSION["nombre"])) {
                             <!-- centro -->
                             <div class="panel-body">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="white-box">
+                                    <div class="small-box bg-aqua">
                                         <div class="inner">
                                             <h4 style="font-size: 17px;">
                                                 <strong>S/ <?php echo $totalc ?></strong>
@@ -96,11 +86,11 @@ if (!isset($_SESSION["nombre"])) {
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="white-box">
+                                    <div class="small-box bg-green">
                                         <div class="inner">
                                             <h4 style="font-size: 17px;">
                                                 <strong><strong>S/ <?php echo $totalv ?></strong></strong>
-                                                <p>Vendas</p>
+                                                <p>Ventas</p>
                                             </h4>
                                         </div>
                                         <div class="icon">
@@ -147,17 +137,10 @@ if (!isset($_SESSION["nombre"])) {
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </section><!-- /.content -->
-                        </div>
-                    </div>
 
-
-                </div>
-                <!-- /.container-fluid -->
-                
-                
-                
-                
-                <?php
+        </div><!-- /.content-wrapper -->
+        <!--Fin-Contenido-->
+        <?php
     } else { //fim de verificacao de permisso
         require 'noacceso.php';
     }
@@ -274,4 +257,3 @@ if (!isset($_SESSION["nombre"])) {
 }
 ob_end_flush();
 ?>
-                
