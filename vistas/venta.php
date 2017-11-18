@@ -106,14 +106,14 @@ if (!isset($_SESSION["nombre"])) {
                                     </div>
 
                                     <div class="table-responsive col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                                        <table id="detalles" class="table table-striped table-bordered table-condensed table-hover table-responsive">
+                                        <table width="100%" id="detalles" class="table table-striped table-bordered table-condensed table-hover table-responsive">
                                             <thead style="background-color:#A9D0F5">
                                             <th width="10">Opções</th>
                                             <th>Produto</th>
-                                            <th width="10">Quantidade</th>
-                                            <th width="10">Preço</th>
-                                            <th width="10">Desconto</th>
-                                            <th width="10">Sub-Total</th>
+                                            <th>Quantidade</th>
+                                            <th>Preço</th>
+                                            <th>Desconto</th>
+                                            <th>Sub-Total</th>
                                             </thead>
                                             <tfoot>
                                             <th>TOTAL</th>

@@ -270,11 +270,11 @@ function agregarDetalle(idarticulo, articulo, precio_venta)
         var fila = '<tr class="filas" id="fila' + cont + '">' +
                 '<td width="10"><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
                 '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
-                '<td width="10"><input styele="width: 10px;" type="number" onchange="modificarSubototales()" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-                '<td width="10"><input type="number" onchange="modificarSubototales()" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '"></td>' +
-                '<td width="10"><input type="number" name="descuento[]" value="' + descuento + '"></td>' +
-                '<td width="10"><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
-                '<td width="10"><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
+                '<td><input style="width: 50px;" type="number" onchange="modificarSubototales()" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
+                '<td><input type="number" onchange="modificarSubototales()" name="precio_venta[]" id="precio_venta[]" step="0.01" min="0" size="5" value="' + precio_venta + '"></td>' +
+                '<td><input type="number" name="descuento[]" value="' + descuento + '"></td>' +
+                '<td><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
+                '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
                 '</tr>';
         cont++;
         detalles = detalles + 1;
