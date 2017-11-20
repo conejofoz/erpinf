@@ -11,6 +11,7 @@ function init() {
     });
     //Cargamos los items al select cliente
     $.post("../ajax/venta.php?op=selectCliente", function (r) {
+
         $("#idcliente").html(r);
         $('#idcliente').selectpicker('refresh');
     });
@@ -40,15 +41,15 @@ function limpiar()
     //Marcamos el primer tipo_documento
     $("#tipo_comprovante").val("Boleta");
     $("#tipo_comprovante").selectpicker('refresh');
-    
-   
+
+
 }
 
 //Función mostrar formulario
 function mostrarform(flag)
 {
     limpiar();
-    
+
     if (flag) //consulta
     {
         $("#listadoregistros").hide();
@@ -61,8 +62,8 @@ function mostrarform(flag)
         $("#btnCancelar").show();
         $("#btnAgregarArt").show();
         detalles = 0;
-        
-        
+
+
     } else  //nova venda
     {
         listarArticulos();
@@ -104,6 +105,25 @@ function listar()
                                 console.log(e.responseText);
                             }
                         },
+               // pagingType: 'full', // inicio idioma
+                language: {
+                    ////paginate: {
+                    ////    first: '«',
+                    ////    previous: '‹',
+                    ////    next: '›',
+                    ////    last: '»'
+                    //},
+                    aria: {
+                        paginate: {
+                            first: 'Primeiro',
+                            previous: 'Anterior',
+                            next: 'Próximo',
+                            last: 'Último'
+                        }
+                    }//,
+                }, //fim idioma
+
+
                 "bDestroy": true,
                 "iDisplayLength": 5, //Paginación
                 "order": [[0, "desc"]]//Ordenar (columna,orden)
@@ -141,6 +161,14 @@ function guardaryeditar(e)
 {
     e.preventDefault(); //No se activará la acción predeterminada del evento
     //$("#btnGuardar").prop("disabled",true);
+    //x = $("#idcliente").val();
+    //alert(x);
+    if ($("#idcliente").val() == null) {
+        validaCliente();
+        //swal("Erro!", "cliente", "error");
+        return false;
+    }
+
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
@@ -152,17 +180,20 @@ function guardaryeditar(e)
         success: function (datos)
         {
             //bootbox.alert(datos);
-            if(datos == 'Venta registrada'){
-                swal({title: "Venda adicionada!",text: "a venda foi adicionada com sucesso!",closeOnConfirm: false, type:"success"});
+            if (datos == 'Venta registrada') {
+                swal({title: "Venda adicionada!", text: "a venda foi adicionada com sucesso!", closeOnConfirm: false, type: "success"});
                 mostrarform(false);
                 listar();
+                limpiar();
             } else {
-            swal("Erro!", "Ocorreu um erro e a venda não foi inserida", "error");
+                swal("Erro!", "Ocorreu um erro e a venda não foi inserida", "error");
+                //validaCliente();
+                return;
             }
         }
 
     });
-    limpiar();
+    //limpiar(); //quando a venda não funcionava fechava tudo na cara do vendedor
 }
 
 function mostrar(idventa) // quando clica no botao visualizar venda
@@ -190,14 +221,14 @@ function mostrar(idventa) // quando clica no botao visualizar venda
     });
 
     /*$.post("../ajax/venta.php?op=listarDetalle&id=" + idventa, function (r) {
-        $("#detalles").html(r);
-        tabla.ajax.reload(); //eu
-        $("#detalles").hide();
-        $("#detalles").show();
-    });
-    */
-   //******* por los problema de los detalles que no aparecen
-   tabla2 = $('#detalles').dataTable(
+     $("#detalles").html(r);
+     tabla.ajax.reload(); //eu
+     $("#detalles").hide();
+     $("#detalles").show();
+     });
+     */
+    //******* por los problema de los detalles que no aparecen
+    tabla2 = $('#detalles').dataTable(
             {
                 "language": {"emptyTable": "No data available in table"}, //******no ANDAAAAAAA
                 "aProcessing": true, //Activamos el procesamiento del datatables
@@ -208,7 +239,7 @@ function mostrar(idventa) // quando clica no botao visualizar venda
                 "ajax":
                         {
                             url: '../ajax/venta.php?op=listarDetalle',
-                            data:{idventa: idventa},
+                            data: {idventa: idventa},
                             type: "get",
                             dataType: "json",
                             error: function (e) {
@@ -221,7 +252,7 @@ function mostrar(idventa) // quando clica no botao visualizar venda
                 "iDisplayLength": 15, //Paginación
                 "order": [[0, "desc"]]//Ordenar (columna,orden)
             }).DataTable();
-   //******* fim de cambio
+    //******* fim de cambio
 }
 
 //Función para anular registros
@@ -268,18 +299,18 @@ function agregarDetalle(idarticulo, articulo, precio_venta)
     {
         var subtotal = cantidad * precio_venta;
         var fila = '<tr class="filas" id="fila' + cont + '">' +
-                '<td width="10"><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
+                '<td style="width: 50px;"><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
                 '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
-                '<td><input style="width: 50px;" type="number" onchange="modificarSubototales()" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-                '<td><input type="number" onchange="modificarSubototales()" name="precio_venta[]" id="precio_venta[]" step="0.01" min="0" size="5" value="' + precio_venta + '"></td>' +
-                '<td><input type="number" name="descuento[]" value="' + descuento + '"></td>' +
-                '<td><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
-                '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
+                '<td style="width: 80px; text-align:right;"><input style="width: 80px; text-align:center;" type="number" onchange="modificarSubototales()" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
+                '<td style="width: 100px; text-align:right;"><input style="width: 100px; text-align:right;" type="number" onchange="modificarSubototales()" name="precio_venta[]" id="precio_venta[]" step="0.01" min="0" size="5" value="' + precio_venta + '"></td>' +
+                '<td style="width: 100px; text-align:right;"><input style="width: 100px; text-align:right;" type="number" name="descuento[]" value="' + descuento + '"></td>' +
+                '<td style="width: 150px; text-align:right;"><input style="width: 100px; text-align:right;" type="number" name="subtotal" id="subtotal' + cont + '" value="' + subtotal + '" step="0.01"></td>' +
+                '<td style="width: 50px; text-align:center;"><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
                 '</tr>';
         cont++;
         detalles = detalles + 1;
-        $('#detalles').append(fila); 
-        modificarSubototales(); 
+        $('#detalles').append(fila);
+        modificarSubototales();
     } else
     {
         alert("Error al ingresar el detalle, revisar los datos del artículo");
@@ -300,20 +331,34 @@ function modificarSubototales()
         var inpS = sub[i];
 
         inpS.value = (inpC.value * inpP.value) - inpD.value;
-        document.getElementsByName("subtotal")[i].innerHTML = inpS.value;
+        //document.getElementsByName("subtotal")[i].innerHTML = inpS.value;
+        document.getElementsByName("subtotal")[i].value = inpS.value;
+        x = document.getElementsByName("subtotal")[i];
+        console.log("modificarSubtotales->campo subtotal ->" + sub);
+        console.log("modificarSubtotales->subtotal ->" + x);
+        console.log("modificarSubtotales->" + inpS.value);
+        console.log("-----------------------------------------------------");
     }
     calcularTotales();
 
 }
 function calcularTotales() {
     var sub = document.getElementsByName("subtotal");
+    console.log("calcularTotales->campo subtotal ->" + sub);
+
     var total = 0.0;
 
     for (var i = 0; i < sub.length; i++) {
-        total += document.getElementsByName("subtotal")[i].value;
+        total += parseFloat(document.getElementsByName("subtotal")[i].value);
+        ////total += parseFloat($("#subtotal"+i).val());
+        x = document.getElementsByName("subtotal")[i];
+        console.log("calcularTotales->subtotal ->" + x);
+        console.log(total);
     }
-    $("#total").html("S/. " + total);
+
+    $("#total").html("US$ " + total.toFixed(2));
     $("#total_venta").val(total);
+
     evaluar();
 }
 
@@ -338,7 +383,7 @@ function eliminarDetalle(indice) {
 
 
 
-function limparDetalhes(){
+function limparDetalhes() {
     tabla2 = $('#detalles').dataTable(
             {
                 "aProcessing": true, //Activamos el procesamiento del datatables
@@ -349,7 +394,7 @@ function limparDetalhes(){
                 "ajax":
                         {
                             url: '../ajax/venta.php?op=listarDetalle',
-                            data:{idventa: 0},
+                            data: {idventa: 0},
                             type: "get",
                             dataType: "json",
                             error: function (e) {
@@ -357,9 +402,26 @@ function limparDetalhes(){
                             }
                         },
                 "bDestroy": true,
-                "iDisplayLength": 15, //Paginación
-                "order": [[0, "desc"]]//Ordenar (columna,orden)
+                "ordering": false,
+                "paging": false,
+                "searching": false,
+                "iDisplayLength": 15 //, //Paginación
+                        //"order": [[0, "desc"]]//Ordenar (columna,orden)
             }).DataTable();
 }
+
+
+function validaCliente() {
+    $.toast({
+        heading: 'Cliente',
+        text: 'o cliente é obrigatório.',
+        position: 'top-right',
+        loaderBg: '#ff6849',
+        icon: 'success',
+        hideAfter: 3500,
+        stack: 6
+    });
+}
+
 
 init();

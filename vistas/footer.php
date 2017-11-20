@@ -24,6 +24,17 @@
 <script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
 <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 
+<!--datatable-->
+<script src="../plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+<!-- start - This is for export functionality only -->
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+<!-- end - This is for export functionality only -->
 
 
 
@@ -37,6 +48,7 @@
 <!--<script src="../public/js/app.min.js"></script>--><!-- essa linha não deixa o menu do novo rolar -->
 
 <!-- DATATABLES -->
+<!--
 <script src="../public/datatables/jquery.dataTables.min.js"></script>    
 <script src="../public/datatables/dataTables.buttons.min.js"></script>
 <script src="../public/datatables/buttons.html5.min.js"></script>
@@ -44,7 +56,7 @@
 <script src="../public/datatables/jszip.min.js"></script>
 <script src="../public/datatables/pdfmake.min.js"></script>
 <script src="../public/datatables/vfs_fonts.js"></script> 
-
+-->
 <script src="../public/js/bootbox.min.js"></script> 
 <script src="../public/js/bootstrap-select.min.js"></script>  
 <!-- antigo -->

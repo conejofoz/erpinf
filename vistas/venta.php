@@ -42,7 +42,6 @@ if (!isset($_SESSION["nombre"])) {
                             <div class="panel-body table-responsive" id="listadoregistros">
                                 <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead>
-                                    <th width="106">Opciones</th>
                                     <th>Fecha</th>
                                     <th>Cliente</th>
                                     <th>Usuario</th>
@@ -50,11 +49,11 @@ if (!isset($_SESSION["nombre"])) {
                                     <th>Número</th>
                                     <th>Total Venta</th>
                                     <th>Estado</th>
+                                    <th>Opciones</th>
                                     </thead>
                                     <tbody>                            
                                     </tbody>
                                     <tfoot>
-                                    <th>Opciones</th>
                                     <th>Fecha</th>
                                     <th>Proveedor</th>
                                     <th>Usuario</th>
@@ -62,6 +61,7 @@ if (!isset($_SESSION["nombre"])) {
                                     <th>Número</th>
                                     <th>Total Venta</th>
                                     <th>Estado</th>
+                                    <th>Opciones</th>
                                     </tfoot>
                                 </table>
                             </div>
@@ -70,7 +70,7 @@ if (!isset($_SESSION["nombre"])) {
                                     <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                         <label>Cliente(*):</label>
                                         <input type="hidden" name="idventa" id="idventa">
-                                        <select id="idcliente" name="idcliente" class="form-control selectpicker" data-live-search="true" required>
+                                        <select id="idcliente" name="idcliente" class="form-control selectpicker" data-live-search="true" >
 
                                         </select>
                                     </div>
@@ -114,6 +114,7 @@ if (!isset($_SESSION["nombre"])) {
                                             <th>Preço</th>
                                             <th>Desconto</th>
                                             <th>Sub-Total</th>
+                                            <th>Atualizar</th>
                                             </thead>
                                             <tfoot>
                                             <th>TOTAL</th>

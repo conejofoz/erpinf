@@ -23,7 +23,7 @@ if (strlen(session_id()) < 1) {
         <!--alerts CSS -->
         <link href="../plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
         <!-- toast CSS -->
-    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="../ampleadmin-minimal/css/style.css" rel="stylesheet">
         <!-- color CSS -->
@@ -51,10 +51,15 @@ if (strlen(session_id()) < 1) {
         <link rel="shortcut icon" href="../public/img/favicon.ico">
 
         <!-- DATATABLES -->
+        <!--
         <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.dataTables.min.css">    
         <link href="../public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
         <link href="../public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
-
+        -->
+        <link href="../plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+        
+        
         <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
         <!--  fim antigo -->
 

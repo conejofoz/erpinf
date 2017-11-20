@@ -80,7 +80,8 @@ switch ($_GET["op"]) {
                 "2" => $reg->cantidad,
                 "3" => $reg->precio_venta,
                 "4" => $reg->descuento,
-                "5" => $reg->subtotal
+                "5" => $reg->subtotal,
+                "6" => ''
             );
         }
         $results = array(
@@ -115,10 +116,10 @@ switch ($_GET["op"]) {
                 "4" => $reg->serie_comprovante . '-' . $reg->num_comprovante,
                 "5" => $reg->total_venta,
                 "6" => ($reg->estado == 'Aceptado') ? '<span class="label bg-green">Aceptado</span>' : '<span class="label bg-red">Anulado</span>',
-                "7" => (($reg->estado == 'Aceptado') ? '<button class="btn btn-warning" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>' .
-                        ' <button class="btn btn-danger" onclick="anular(' . $reg->idventa . ')"><i class="fa fa-close"></i></button>' :
-                        '<button class="btn btn-warning" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>') .
-                '<a target="_blank" href="' . $url . $reg->idventa . '"> <button class="btn btn-info"><i class="fa fa-file"></i></button></a>'
+                "7" => (($reg->estado == 'Aceptado') ? '<button class="btn btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>' .
+                        ' <button class="btn btn-danger btn-circle" onclick="anular(' . $reg->idventa . ')"><i class="fa fa-close"></i></button>' :
+                        '<button class="btn btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>') .
+                '<a target="_blank" href="' . $url . $reg->idventa . '"> <button class="btn btn-info btn-circle"><i class="fa fa-file"></i></button></a>'
             );
         }
         $results = array(
@@ -135,7 +136,7 @@ switch ($_GET["op"]) {
         $persona = new Persona();
 
         $rspta = $persona->listarC();
-
+        echo '<option value="0">' . "Selecione um cliente" . '</option>';   
         while ($reg = $rspta->fetch_object()) {
             echo '<option value=' . $reg->idpersona . '>' . $reg->nombre . '</option>';
         }
