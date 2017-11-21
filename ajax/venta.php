@@ -116,10 +116,10 @@ switch ($_GET["op"]) {
                 "4" => $reg->serie_comprovante . '-' . $reg->num_comprovante,
                 "5" => $reg->total_venta,
                 "6" => ($reg->estado == 'Aceptado') ? '<span class="label bg-green">Aceptado</span>' : '<span class="label bg-red">Anulado</span>',
-                "7" => (($reg->estado == 'Aceptado') ? '<button class="btn btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>' .
-                        ' <button class="btn btn-danger btn-circle" onclick="anular(' . $reg->idventa . ')"><i class="fa fa-close"></i></button>' :
-                        '<button class="btn btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>') .
-                '<a target="_blank" href="' . $url . $reg->idventa . '"> <button class="btn btn-info btn-circle"><i class="fa fa-file"></i></button></a>'
+                "7" => (($reg->estado == 'Aceptado') ? '<button class="btn btn-outline btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>' .
+                        ' <button class="btn btn-outline btn-primary btn-1b btn-circle" onclick="anular(' . $reg->idventa . ')"><i class="fa fa-close"></i></button>' :
+                        '<button class="btn btn-outline btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>') .
+                '<a target="_blank" href="' . $url . $reg->idventa . '"> <button class="btn btn-outline btn-info btn-circle"><i class="fa fa-file"></i></button></a>'
             );
         }
         $results = array(
@@ -152,7 +152,7 @@ switch ($_GET["op"]) {
 
         while ($reg = $rspta->fetch_object()) {
             $data[] = array(
-                "0" => '<button class="btn btn-warning" onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',\'' . $reg->precio_venta . '\')"><span class="fa fa-plus"></span></button>',
+                "0" => '<button class="btn btn-outline btn-circle btn-warning" onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',\'' . $reg->precio_venta . '\')"><span class="fa fa-plus"></span></button>',
                 "1" => $reg->nombre,
                 "2" => $reg->categoria,
                 "3" => $reg->codigo,

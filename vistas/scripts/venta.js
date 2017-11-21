@@ -297,7 +297,7 @@ function agregarDetalle(idarticulo, articulo, precio_venta)
     {
         var subtotal = cantidad * precio_venta;
         var fila = '<tr class="filas" id="fila' + cont + '">' +
-                '<td style="width: 50px;"><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
+                '<td style="width: 50px; text-align:center"><button type="button" class="btn btn-outline btn-circle btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
                 '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
                 '<td style="width: 80px; text-align:right;"><input style="width: 80px; text-align:center;" type="number" onchange="modificarSubototales()" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
                 '<td style="width: 100px; text-align:right;"><input style="width: 100px; text-align:right;" type="number" onchange="modificarSubototales()" name="precio_venta[]" id="precio_venta[]" step="0.01" min="0" size="5" value="' + precio_venta + '"></td>' +
