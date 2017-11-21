@@ -105,24 +105,22 @@ function listar()
                                 console.log(e.responseText);
                             }
                         },
-               // pagingType: 'full', // inicio idioma
+               /* pagingType: 'full_numbers', // inicio idioma
                 language: {
-                    ////paginate: {
-                    ////    first: '«',
-                    ////    previous: '‹',
-                    ////    next: '›',
-                    ////    last: '»'
-                    //},
-                    aria: {
-                        paginate: {
-                            first: 'Primeiro',
-                            previous: 'Anterior',
-                            next: 'Próximo',
-                            last: 'Último'
-                        }
-                    }//,
+                    /*paginate: {
+                        first: '«',
+                        previous: '‹',
+                        next: '›',
+                        last: '»'
+                    },*/
+                   /* paginate: {
+                        first: 'Primeiro',
+                        previous: 'Anterior',
+                        next: 'Próximo',
+                        last: 'Último'
+                    },
                 }, //fim idioma
-
+                */
 
                 "bDestroy": true,
                 "iDisplayLength": 5, //Paginación
@@ -405,6 +403,7 @@ function limparDetalhes() {
                 "ordering": false,
                 "paging": false,
                 "searching": false,
+                "info": false,
                 "iDisplayLength": 15 //, //Paginación
                         //"order": [[0, "desc"]]//Ordenar (columna,orden)
             }).DataTable();
