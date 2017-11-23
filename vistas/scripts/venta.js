@@ -215,7 +215,7 @@ function mostrar(idventa) // quando clica no botao visualizar venda
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
         $("#btnAgregarArt").hide();
-        $("#total").html("US$ " + data.total_venta); //eu mostrar total abaixo do datatable
+        $("#total").html("$ " + data.total_venta); //eu mostrar total abaixo do datatable
     });
 
     /*$.post("../ajax/venta.php?op=listarDetalle&id=" + idventa, function (r) {
@@ -247,6 +247,7 @@ function mostrar(idventa) // quando clica no botao visualizar venda
                 "bDestroy": true,
                 "paging": false,
                 "searching": false,
+                "info": false,
                 "iDisplayLength": 15, //Paginación
                 "order": [[0, "desc"]]//Ordenar (columna,orden)
             }).DataTable();
@@ -354,7 +355,7 @@ function calcularTotales() {
         console.log(total);
     }
 
-    $("#total").html("US$ " + total.toFixed(2));
+    $("#total").html("$ " + total.toFixed(2));
     $("#total_venta").val(total);
 
     evaluar();
