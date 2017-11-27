@@ -1,7 +1,6 @@
 <?php
 
 class Conexao {
-
    
     private static $Connect = null;
    
@@ -28,13 +27,44 @@ class Conexao {
     }
     
     
-    
         
     public static function getConn(){
         return self::Conectar();
     }
     
+    
 
+
+
+    private static function Conectar_mysql(){
+        $dsn = "mysql:dbname=infinitygroup01;host=mysql.infinity-group.net";
+        $dbuser = "infinitygroup01";
+	$dbpass = "conejo24";
+       try{
+           if(self::$Connect == null){
+               self::$Connect = new PDO($dsn, $dbuser, $dbpass);
+               self::$Connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           }
+       } catch (PDOException $e) {
+           echo "\n=================================\n";
+           echo "Nao conectou " . $e->getMessage();
+           echo "\n=================================\n";
+           die;
+       } 
+       
+       return self::$Connect;
+    }
+    
+    
+        
+    public static function getConn_mysql(){
+        return self::Conectar_mysql();
+    }
+    
+    
+    
+    
+    
 }
 
 

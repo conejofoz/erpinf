@@ -62,9 +62,6 @@ Class Deposito {
     public function listarProdutos($x) {
         try {
             $p = '%' . trim($x) . '%';
-            //$p = '%' . trim($x);
-            //$p = $x . '%';
-            $PDO = new Conexao();
             $PDO = new Conexao();
             $sql = "SELECT CP_CODPRO, "
                     //.utf8_encode("CP_DESCRILJ,") //NAO PRECISA... SO ANTES DE RETORNAR PARA O JSON JA FUNCIONA
@@ -83,10 +80,12 @@ Class Deposito {
             $query->execute();
             return $query;
         } catch (Exception $ex) {
-            echo "errrrrrrrrro" .$ex->getMessage();
+            echo "Erro ao listar produtos " .$ex->getMessage();
             die;
         }
     }
+    
+    
 
     //Implementar un metodo para listar los registros activos
     public function listarActivos() {

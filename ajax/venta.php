@@ -115,7 +115,7 @@ switch ($_GET["op"]) {
                 "3" => $reg->tipo_comprovante,
                 "4" => $reg->serie_comprovante . '-' . $reg->num_comprovante,
                 "5" => $reg->total_venta,
-                "6" => ($reg->estado == 'Aceptado') ? '<span class="label bg-green">Aceptado</span>' : '<span class="label bg-red">Anulado</span>',
+                "6" => ($reg->estado == 'Aceptado') ? '<span class="label label-info">Aceptado</span>' : '<span class="label label-danger">Anulado</span>',
                 "7" => (($reg->estado == 'Aceptado') ? '<button class="btn btn-outline btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>' .
                         ' <button class="btn btn-outline btn-primary btn-1b btn-circle" onclick="anular(' . $reg->idventa . ')"><i class="fa fa-close"></i></button>' :
                         '<button class="btn btn-outline btn-warning btn-circle" onclick="mostrar(' . $reg->idventa . ')"><i class="fa fa-eye"></i></button>') .
